@@ -9,8 +9,10 @@ import {colors} from "../colors";
 import {toDo} from "../utils.tsx";
 import {P} from "../components/P.tsx";
 
-const Input = (properties: PropsWithChildren<InputHTMLAttributes<HTMLInputElement> & { containerStyle?: CSSProperties }>) => {
-    const {containerStyle,...props} = properties;
+const Input = (properties: PropsWithChildren<InputHTMLAttributes<HTMLInputElement> & {
+    containerStyle?: CSSProperties
+}>) => {
+    const {containerStyle, ...props} = properties;
     return <label style={{display: 'flex', flexDirection: 'column', ...containerStyle}}>
         <div style={{fontSize: '0.9rem', paddingLeft: '0.5rem'}}>{props.title}</div>
         <input {...props} style={{
@@ -35,8 +37,10 @@ const Button = (props: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>
         backgroundColor: colors.second, ...props.style
     }}>{props.children}</button>
 }
-const TextArea = (properties: PropsWithChildren<TextareaHTMLAttributes<HTMLTextAreaElement> & { containerStyle?: CSSProperties }>) => {
-    const {containerStyle,...props} = properties;
+const TextArea = (properties: PropsWithChildren<TextareaHTMLAttributes<HTMLTextAreaElement> & {
+    containerStyle?: CSSProperties
+}>) => {
+    const {containerStyle, ...props} = properties;
     return <label style={{display: 'flex', flexDirection: 'column', ...containerStyle}}>
         <div style={{fontSize: '0.9rem', paddingLeft: '0.5rem'}}>{props.title}</div>
         <textarea {...props} style={{
@@ -57,15 +61,65 @@ export function Appointment() {
     const triggeredButtonRef = useRef<'email' | 'phone' | 'sms'>('email');
 
     function sendEmail(props: Customer) {
-        toDo(props);
+        const a = document.createElement('a');
+        const title = `From ${props.name} parents of ${props.childName}`;
+        const message = `Parent : ${props.name}
+Child  : ${props.childName} 
+DoB    : (${props.childDoB} / ${calculateAge(new Date(props.childDoB))}) 
+Email  : ${props.email} 
+Phone  : ${props.phone}
+
+${props.message}
+`;
+        const href = `mailto:pedsagar@gmail.com?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(message)}`;
+        const linkId = `mail-${id}`;
+        a.setAttribute('id', linkId);
+        a.setAttribute('href', href);
+        document.body.appendChild(a);
+        const linkElement = document.getElementById(linkId)!;
+        linkElement.click();
+        linkElement.remove();
     }
 
     function sendSms(props: Customer) {
-        toDo(props);
+        const a = document.createElement('a');
+        const message = `Parent : ${props.name}
+Child  : ${props.childName} 
+DoB    : (${props.childDoB} / ${calculateAge(new Date(props.childDoB))}) 
+Email  : ${props.email} 
+Phone  : ${props.phone}
+
+${props.message}
+`;
+        const href = `sms:+14109539347?body=${encodeURIComponent(message)}`;
+        const linkId = `sms-${id}`;
+        a.setAttribute('id', linkId);
+        a.setAttribute('href', href);
+        document.body.appendChild(a);
+        const linkElement = document.getElementById(linkId)!;
+        linkElement.click();
+        linkElement.remove();
     }
 
-    function sendPhone(props: Customer) {
-        toDo(props);
+    function sendWhatsApp(props: Customer) {
+        const a = document.createElement('a');
+
+        const message = `Parent : ${props.name}
+Child  : ${props.childName} 
+DoB    : (${props.childDoB} / ${calculateAge(new Date(props.childDoB))}) 
+Email  : ${props.email} 
+Phone  : ${props.phone}
+
+${props.message}
+`;
+        const href = `https://wa.me/+14109539347?text=${encodeURIComponent(message)}`;
+        const linkId = `wa-${id}`;
+        a.setAttribute('id', linkId);
+        a.setAttribute('href', href);
+        document.body.appendChild(a);
+        const linkElement = document.getElementById(linkId)!;
+        linkElement.click();
+        linkElement.remove();
     }
 
     return <Page title={'Appointment'} path={'appointment'} stickyHeader={false}>
@@ -81,11 +135,15 @@ export function Appointment() {
             const form = e.currentTarget as HTMLFormElement;
 
             const getValue = (key: string): string => {
-                const element = form.elements.namedItem(key)!;
-                if(element instanceof HTMLInputElement) {
+                const element = form.elements.namedItem(key);
+                if (element instanceof HTMLInputElement) {
+                    return element.value;
+                }
+                if (element instanceof HTMLTextAreaElement) {
                     return element.value;
                 }
                 return '';
+
             };
 
             const customer: Customer = {
@@ -104,7 +162,7 @@ export function Appointment() {
                 sendSms(customer)
             }
             if (trigger === 'phone') {
-                sendPhone(customer)
+                sendWhatsApp(customer)
             }
             return false;
         }} action={'#'} id={`${id}-form`}>
@@ -126,12 +184,36 @@ export function Appointment() {
                       style={{marginBottom: '1rem', height: '10rem'}} title={'Message'}
                       placeholder={'What is ailing your child ?'}/>
             <div style={{display: 'flex', flexDirection: 'row'}}>
-                <Button style={{marginRight: '1rem'}} onClick={() => triggeredButtonRef.current = 'email'}>Send
-                    Email</Button>
-                <Button onClick={() => triggeredButtonRef.current = 'sms'}>Send SMS</Button>
-                <Button style={{marginLeft: '1rem'}} onClick={() => triggeredButtonRef.current = 'phone'}>Phone</Button>
+                <Button style={{marginRight: '1rem'}} onClick={() => triggeredButtonRef.current = 'email'}>Email</Button>
+                <Button onClick={() => triggeredButtonRef.current = 'sms'}>SMS</Button>
+                <Button style={{marginLeft: '1rem'}} onClick={() => triggeredButtonRef.current = 'phone'}>Whats App</Button>
             </div>
 
         </form>
     </Page>
+}
+
+function calculateAge(dob: Date) {
+    const today = new Date();
+    const yearDiff = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+    const dayDiff = today.getDate() - dob.getDate();
+
+    let age: number | string;
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        age = yearDiff - 1;
+    } else {
+        age = yearDiff;
+    }
+
+    if (age === 0) {
+        const monthCount = (today.getFullYear() - dob.getFullYear()) * 12 + today.getMonth() - dob.getMonth();
+        age = monthCount.toString() + ' month';
+    } else if (age === 1) {
+        age = age.toString() + ' year';
+    } else {
+        age = age.toString() + ' years';
+    }
+    return age;
 }

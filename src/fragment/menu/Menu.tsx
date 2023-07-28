@@ -31,7 +31,7 @@ export function Menu() {
             position: 'fixed',
             width: '1.5rem',
             top: '1rem',
-            right: '0.5rem',
+            right: '1rem',
             zIndex: 1,
             display: 'flex',
             flexDirection: 'column'
