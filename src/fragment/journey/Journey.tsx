@@ -3,6 +3,8 @@ import {useViewportDimension} from "../useViewportDimension";
 import {CSSProperties} from "react";
 import {Page} from "../components/Page";
 
+import {P} from "../components/P.tsx";
+
 export function Journey() {
     const dimension = useViewportDimension();
     const sectionStyle: CSSProperties = {};
@@ -18,11 +20,11 @@ export function Journey() {
         imageStyle.justifyContent = 'center';
         delete imageStyle.float;
     }
-    return <Page title={'My Journey'}>
+    return <Page title={'My Journey'} path={'journey'}>
             <div style={imageStyle}>
                 <img src={drSagar} width={270} height={400}  alt={'Dr Sagar profile picture'}/>
             </div>
-            <p style={{wordSpacing: '0.1rem', fontWeight: 300, fontSize: '1.1rem'}}>I am Dr.
+            <P>I am Dr.
                 Padmini Sagar and I have been a practicing pediatrician for nearly 40 years. After practicing
                 Pediatrics for 10+ years, I realized that Allopathic medicine is very good in treating acute, life
                 threatening illnesses and trauma etc. but has no real cures for chronic diseases. I also observed that
@@ -40,7 +42,7 @@ export function Journey() {
                 in my conventional Pediatric Practice for chronic conditions, if parents were willing to try. I saw
                 amazing
                 results without the side effects. Now I would like to treat my Pediatric Patients exclusively with
-                Homeopathy and Holistic approaches.</p>
+                Homeopathy and Holistic approaches.</P>
             <p>This is a Holistic Pediatric consultation only, not a primary care practice. Your child needs to have a
                 primary care physician. The consultation is by Video visit only at this time.</p>
 

@@ -6,8 +6,7 @@ export function Education() {
     const dimension = useViewportDimension();
     const columnWidth = dimension.width < 700 ? '100%' : '50%';
     const hideBorder = dimension.width < 700;
-    return <Page title={'Education & License'}>
-
+    return <Page title={'Education & License'} path={'education'}>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
             <div style={{display: 'flex', flexDirection: 'column', width: columnWidth}}>
                 {educations.map(education => {

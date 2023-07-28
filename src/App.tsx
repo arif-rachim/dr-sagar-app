@@ -1,10 +1,14 @@
-import {useState} from "react";
 import {Menu} from "./fragment/menu/Menu";
 import {Banner} from "./fragment/banner/Banner";
 import {Journey} from "./fragment/journey/Journey";
 import {Education} from "./fragment/education/Education";
-import {ConditionsTreated} from "./fragment/treated/ConditionsTreated";
+import {ConditionsTreated} from "./fragment/conditions-treated/ConditionsTreated";
 import {Appointment} from "./fragment/appointment/Appointment";
+import {FirstConsultation} from "./fragment/first-consultation/FirstConsultation.tsx";
+import {FollowUpConsultations} from "./fragment/followup-consultations/FollowUpConsultations.tsx";
+import {FeePayment} from "./fragment/fee-payment/FeePayment.tsx";
+import {WhatIsHomeopathy} from "./fragment/what-is-homeopathy/WhatIsHomeopathy.tsx";
+import {Footer} from "./fragment/footer/Footer.tsx";
 
 /**
  *
@@ -12,15 +16,20 @@ import {Appointment} from "./fragment/appointment/Appointment";
  */
 
 function App() {
-  const [count, setCount] = useState(0)
-  return <div style={{display:'flex',flexDirection:'column',maxWidth:1024,margin:'auto'}}>
-    <Menu />
-    <Banner/>
-    <Journey/>
-    <Education/>
-    <ConditionsTreated />
-    <Appointment />
-  </div>
+
+    return <div style={{display: 'flex', flexDirection: 'column', maxWidth: 900, margin: 'auto'}}>
+        <Menu/>
+        <Banner/>
+        <Journey/>
+        <Education/>
+        <ConditionsTreated/>
+        <FirstConsultation/>
+        <FollowUpConsultations/>
+        <Appointment/>
+        <FeePayment/>
+        <WhatIsHomeopathy />
+        <Footer />
+    </div>
 }
 
 export default App

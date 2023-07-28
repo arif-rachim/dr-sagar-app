@@ -6,6 +6,8 @@ import {
     TextareaHTMLAttributes, useId, useRef
 } from "react";
 import {colors} from "../colors";
+import {toDo} from "../utils.tsx";
+import {P} from "../components/P.tsx";
 
 const Input = (properties: PropsWithChildren<InputHTMLAttributes<HTMLInputElement> & { containerStyle?: CSSProperties }>) => {
     const {containerStyle,...props} = properties;
@@ -55,31 +57,36 @@ export function Appointment() {
     const triggeredButtonRef = useRef<'email' | 'phone' | 'sms'>('email');
 
     function sendEmail(props: Customer) {
-
+        toDo(props);
     }
 
     function sendSms(props: Customer) {
-
+        toDo(props);
     }
 
     function sendPhone(props: Customer) {
-
+        toDo(props);
     }
 
-    return <Page title={'Appointment'}>
-        <p>Please message me briefly about your child’s problems, what treatment he/she has received and what you expect
+    return <Page title={'Appointment'} path={'appointment'} stickyHeader={false}>
+        <P>Please message me briefly about your child’s problems, what treatment he/she has received and what you expect
             from the consultation. I will be able to decide whether your child would benefit from Homeopathy or not and
             then I will offer your child possible appointment dates / times.
-        </p>
-        <p>Use the contact form below to reach out to me.</p>
+        </P>
+        <P>Use the contact form below to reach out to me.</P>
         <form style={{display: 'flex', flexDirection: 'column', padding: '1rem 0rem'}} onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
             const trigger = triggeredButtonRef.current;
             const form = e.currentTarget as HTMLFormElement;
 
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-return
-            const getValue = (key: string): string => form.elements[key].value;
+            const getValue = (key: string): string => {
+                const element = form.elements.namedItem(key)!;
+                if(element instanceof HTMLInputElement) {
+                    return element.value;
+                }
+                return '';
+            };
 
             const customer: Customer = {
                 name: getValue('name'),
@@ -115,7 +122,7 @@ export function Appointment() {
                    title={'Child Name'} placeholder={'Enter the child\'s name'}/>
             <Input name={'childDob'} required={true} type={'date'} inputMode={'text'} style={{marginBottom: '1rem'}}
                    title={'Child Date of Birth'} placeholder={'Select a date'}/>
-            <TextArea name={'message'} required={true} type={'text'} inputMode={'text'}
+            <TextArea name={'message'} required={true} inputMode={'text'}
                       style={{marginBottom: '1rem', height: '10rem'}} title={'Message'}
                       placeholder={'What is ailing your child ?'}/>
             <div style={{display: 'flex', flexDirection: 'row'}}>

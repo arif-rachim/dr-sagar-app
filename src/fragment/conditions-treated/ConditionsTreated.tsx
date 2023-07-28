@@ -30,7 +30,7 @@ const conditions: { title: string, image: string, details: string[] }[] = [
 
 
 export function ConditionsTreated() {
-    return <Page title={'Conditions Treated'}>
+    return <Page title={'Conditions Treated'} path={'conditions-treated'}>
         <div style={{display: 'flex', flexWrap: 'wrap',justifyContent:'center'}}>
             {conditions.map(condition => {
                 return <div style={{

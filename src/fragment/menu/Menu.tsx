@@ -1,23 +1,60 @@
-import {PropsWithChildren} from "react";
+import {CSSProperties, HTMLProps, PropsWithChildren, useState} from "react";
+import {useViewportDimension} from "../useViewportDimension.ts";
+import {colors} from "../colors.ts";
 
 const Li = (props: PropsWithChildren) => <li style={{
     margin: 0, listStyle: 'none', flexGrow: 1, padding: '1rem',
-     justifyContent: 'center',textAlign:'center'
+    justifyContent: 'center', textAlign: 'center'
 }}>{props.children}</li>
 
-const A = (props:PropsWithChildren<HTMLAnchorElement>) => <a {...props} style={{textDecoration:'none',color:'#fff'}}>{props.children}</a>
-export function Menu() {
+const A = (props: HTMLProps<HTMLAnchorElement>) => <a {...props} style={{
+    textDecoration: 'none',
+    color: '#fff'
+}}>{props.children}</a>
 
-    return <nav style={{background:'#80BC6A',boxShadow:'0 30px 30px -15px rgba(0,0,0,0.1) inset'}}>
-        <ul style={{display: 'flex', margin: 0, padding: 0,flexWrap:'wrap'}}>
-            <Li><A href={'#home'}>Home</A></Li>
-            <Li><A href={'#home'}>First Consultation</A></Li>
-            <Li><A href={'#home'}>Follow Up Consultation</A></Li>
-            <Li><A href={'#home'}>Services</A></Li>
-            <Li><A href={'#home'}>Fees</A></Li>
-            <Li><A href={'#home'}>What is Homeopathy</A></Li>
-            <Li><A href={'#home'}>Testimonials</A></Li>
-            <Li><A href={'#home'}>Contact</A></Li>
+export function Menu() {
+    const dimension = useViewportDimension();
+    const ulStyle: CSSProperties = {display: 'flex', margin: 0, padding: 0, flexWrap: 'wrap'};
+    const navStyle: CSSProperties = {background: '#80BC6A', boxShadow: '0 30px 30px -15px rgba(0,0,0,0.1) inset'};
+    const isMobile = dimension.width < 735;
+    const [showMenu, setShowMenu] = useState(!isMobile);
+    if (isMobile) {
+        navStyle.position = 'fixed';
+        navStyle.top = 0;
+        navStyle.width = '100%';
+        navStyle.zIndex = 1;
+        navStyle.boxShadow = '0 30px 30px -15px rgba(0,0,0,0.1) inset, 0 10px 20px -10px rgba(0,0,0,0.5)'
+        ulStyle.flexDirection = 'column';
+    }
+    if (!showMenu) {
+        return <div style={{
+            position: 'fixed',
+            width: '1.5rem',
+            top: '1rem',
+            right: '0.5rem',
+            zIndex: 1,
+            display: 'flex',
+            flexDirection: 'column'
+        }} onClick={() => setShowMenu(true)}>
+            <div style={{height: '0.3rem', backgroundColor: colors.primary, marginBottom: '0.2rem'}}></div>
+            <div style={{height: '0.3rem', backgroundColor: colors.primary, marginBottom: '0.2rem'}}></div>
+            <div style={{height: '0.3rem', backgroundColor: colors.primary, marginBottom: '0.2rem'}}></div>
+
+        </div>
+    }
+    return <nav style={navStyle}>
+        <ul style={ulStyle} onClick={() => {
+            if (isMobile) {
+                setShowMenu(false)
+            }
+        }}>
+            <Li><A href={'#journey'}>Home</A></Li>
+            <Li><A href={'#first-consultation'}>First Consultation</A></Li>
+            <Li><A href={'#followup-consultations'}>Follow Up Consultation</A></Li>
+            <Li><A href={'#conditions-treated'}>Services</A></Li>
+            <Li><A href={'#fee-payment'}>Fees</A></Li>
+            <Li><A href={'#what-is-homeopathy'}>What is Homeopathy</A></Li>
+            <Li><A href={'#appointment'}>Contact</A></Li>
         </ul>
     </nav>
 }
