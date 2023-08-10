@@ -6,7 +6,7 @@ export function FirstConsultation() {
         <h1 style={{fontSize: '1.6rem', fontWeight: 400, color: '#444'}}>What to Expect</h1>
         <P>During the first consultation, I will be taking a complete history of your child starting from conception to
             the present. I will also need the child's vaccine history, lab results if there are any, food preferences,
-            fears, sleep habits and also Family history. That way I can assess your child through and be able to figure
+            fears, sleep habits and also Family history. That way I can assess your child thoroughly and be able to figure
             out the appropriate Homeopathic remedy. The first consultation may take 1-2 hours. Be prepared for the time
             commitment.</P>
         <P>
@@ -30,7 +30,7 @@ export function FirstConsultation() {
             Store the Remedy away from strong substances and electromagnetic fields like phone, microwave and computer
             etc.
         </P>
-        <P>I cannot guarantee cure in every patient but I will work with you to bring positive effects in your child</P>
+        <P>I cannot guarantee cure in every patient but I will work with you to bring positive effects in your child's</P>
         <P>This is a consultancy practice only. Your child needs to have a Primary care Doctor for routine care.</P>
         <P>Thank you in advance for giving me the opportunity to care for your child!.</P>
     </Page>

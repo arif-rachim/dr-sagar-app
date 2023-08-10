@@ -18,7 +18,7 @@ const Input = (properties: PropsWithChildren<InputHTMLAttributes<HTMLInputElemen
             border: 'none',
             background: 'rgba(255,255,255,0.5)',
             padding: '0.7rem 0.5rem',
-            fontSize: '1.2rem',
+            fontSize: '1rem',
             color: '#333',
             width: '100%', ...props.style
         }}/>
@@ -46,7 +46,7 @@ const TextArea = (properties: PropsWithChildren<TextareaHTMLAttributes<HTMLTextA
             border: 'none',
             background: 'rgba(255,255,255,0.5)',
             padding: '0.7rem 0.5rem',
-            fontSize: '1.2rem',
+            fontSize: '1rem',
             color: '#333',
             width: '100%', ...props.style
         }}>{props.children}</textarea>
@@ -170,10 +170,10 @@ ${props.message}
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <Input name={'email'} required={true} type={'email'} inputMode={"email"}
                        containerStyle={{flexGrow: 1, marginBottom: '1rem', marginRight: '1rem'}} title={'Email'}
-                       placeholder={'Enter your email'}/>
+                       placeholder={'Email'}/>
                 <Input name={'phone'} required={true} type={'tel'} inputMode={'tel'}
                        containerStyle={{flexGrow: 1, marginBottom: '1rem'}} title={'Phone'}
-                       placeholder={'Enter your phone number'}/>
+                       placeholder={'Phone'}/>
             </div>
             <Input name={'childName'} required={true} type={'text'} inputMode={'text'} style={{marginBottom: '1rem'}}
                    title={'Child Name'} placeholder={'Enter the child\'s name'}/>
@@ -182,11 +182,12 @@ ${props.message}
             <TextArea name={'message'} required={true} inputMode={'text'}
                       style={{marginBottom: '1rem', height: '10rem'}} title={'Message'}
                       placeholder={'What is ailing your child ?'}/>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <Button style={{marginRight: '1rem'}} onClick={() => triggeredButtonRef.current = 'email'}>Email</Button>
-                <Button onClick={() => triggeredButtonRef.current = 'sms'}>SMS</Button>
-                <Button style={{marginLeft: '1rem'}} onClick={() => triggeredButtonRef.current = 'phone'}>Whats App</Button>
-            </div>
+            <Button style={{marginRight: '1rem'}} onClick={() => triggeredButtonRef.current = 'email'}>Send</Button>
+            {/*<div style={{display: 'flex', flexDirection: 'row'}}>*/}
+            {/*    <Button style={{marginRight: '1rem'}} onClick={() => triggeredButtonRef.current = 'email'}>Email</Button>*/}
+            {/*    <Button onClick={() => triggeredButtonRef.current = 'sms'}>SMS</Button>*/}
+            {/*    <Button style={{marginLeft: '1rem'}} onClick={() => triggeredButtonRef.current = 'phone'}>Whats App</Button>*/}
+            {/*</div>*/}
 
         </form>
     </Page>

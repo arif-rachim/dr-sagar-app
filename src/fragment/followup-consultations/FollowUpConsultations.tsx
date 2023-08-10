@@ -17,7 +17,7 @@ export function FollowUpConsultations() {
         </P>
         <h1 style={{fontSize: '1.6rem', fontWeight: 400,color:'#444'}}>Second and Further Follow Ups</h1>
         <P>
-            If your child continued to do well, no further dose is needed and I will follow your child every 2-6 months
+            If your child continues to do well, no further dose is needed and I will follow your child every 2-6 months
             intervals. Sometimes Vaccines, Medications, Anesthesia, etc. may counteract the Homeopathic Remedy and
             child's symptoms will recur. If that happens or new problems develop please contact me and I will be happy
             to see your child and help.

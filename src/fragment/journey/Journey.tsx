@@ -29,7 +29,7 @@ export function Journey() {
                 Pediatrics for 10+ years, I realized that Allopathic medicine is very good in treating acute, life
                 threatening illnesses and trauma etc. but has no real cures for chronic diseases. I also observed that
                 there
-                was an alarming increase in the rate of ADHD, Autism, Behavioral disorders, Depression, Asthma, etc.
+                was an alarming increase in the rate of ADHD, Autism, Behavioral disorders, Depression, and Asthma, etc.
                 That is
                 when I started my focus on other complementary modalities like Herbs, Ayurveda, yoga and Meditation but
                 I
