@@ -1,7 +1,10 @@
 import {Page} from "../components/Page.tsx";
 import {P} from "../components/P.tsx";
-
+import whatIsHomeoPathy from "./homeopathy-system.svg";
+import {useViewportDimension} from "../useViewportDimension.ts";
 export function WhatIsHomeopathy() {
+    const {width} = useViewportDimension();
+    const imageSize = width > 800 ? 800 : `calc(${width}px - 0.5rem)`;
     return <Page title={'What is Homeopathy ?'} path={'what-is-homeopathy'}>
         <P>
             Homeopathy is a gentle and natural healing system of Medicine based on "Law of Similar" or "like Cures
@@ -24,6 +27,9 @@ export function WhatIsHomeopathy() {
             poor nutrition, bad lifestyle and sometimes by genetic predisposition. Due to this, the body is unable to
             heal itself and stay healthy. By working together, and focusing on your child's nutrition, healthy lifestyle
             and using gentle remedies like Homeopathy, we can restore this balance and restore your child's health.
+        </P>
+        <P>
+        <img width={imageSize} height={imageSize} src={whatIsHomeoPathy} alt={'Homeopathy image as described in homeopathy.org'}/>
         </P>
     </Page>
 }

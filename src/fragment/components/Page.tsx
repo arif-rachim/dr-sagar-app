@@ -13,7 +13,9 @@ export function Page(props: PropsWithChildren<{ title: string, path: string,stic
         borderTop: `1px solid ${colors.primary}`
     };
     const contentStyle: CSSProperties = {
-        padding: '0rem 3rem 3rem 3rem '
+        padding: '0rem 3rem 3rem 3rem ',
+        letterSpacing:'0rem',
+        fontFamily:'Fira Sans Condensed'
     }
     const headingStyle: CSSProperties = {
         fontFamily: 'Sacramento',
