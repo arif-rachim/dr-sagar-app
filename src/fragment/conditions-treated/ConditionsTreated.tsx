@@ -7,7 +7,8 @@ import earInfections from "./ear-infections.png";
 import eczema from "./eczema.png";
 import growth from "./growth.png";
 import injury from "./injury.png";
-
+import {PropsWithChildren, useRef} from "react";
+import {motion} from "framer-motion";
 
 const conditions: { title: string, image: string, details: string[] }[] = [
     {
@@ -29,36 +30,50 @@ const conditions: { title: string, image: string, details: string[] }[] = [
 ];
 
 
+function ConditionsTreatedIcon(props:PropsWithChildren<{condition: { title: string; image: string; details: string[] }}>) {
+    const ref = useRef(null);
+    const {condition} = props;
+    return <>
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 133,
+            height: 133,
+            borderRadius: '10rem',
+            overflow: 'hidden'
+        }} ref={ref}>
+            <img src={condition.image} height={133.6} width={200} alt={condition.title} />
+        </div>
+        <div style={{fontWeight: 600, fontSize: '0.9rem', marginTop: '1rem'}}>{condition.title}</div>
+        <div style={{
+            fontSize: '0.8rem',
+            textAlign: 'left',
+            display: 'flex',
+            flexDirection: 'column',
+            marginLeft: 20
+        }}>{condition.details.map(condition => {
+            return <div key={condition}>{condition}</div>
+        })}</div>
+    </>;
+}
+
 export function ConditionsTreated() {
     return <Page title={'Conditions Treated'} path={'conditions-treated'}>
         <div style={{display: 'flex', flexWrap: 'wrap',justifyContent:'center'}}>
-            {conditions.map(condition => {
-                return <div style={{
+            {conditions.map((condition) => {
+                return <motion.div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     margin: '1rem',
                     width: 130,
                     alignItems: 'center',
                     textAlign: 'center',
-                    flexGrow:1,
-                    flexShrink:0
-                }} key={condition.title}>
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 133,
-                        height: 133,
-                        borderRadius: '10rem',
-                        overflow: 'hidden'
-                    }}>
-                        <img src={condition.image} height={133.6} width={200}/>
-                    </div>
-                    <div style={{fontWeight: 600,fontSize:'0.9rem',marginTop:'1rem'}}>{condition.title}</div>
-                    <div style={{fontSize:'0.8rem',textAlign:'left',display:'flex',flexDirection:'column',marginLeft:20}}>{condition.details.map(condition => {
-                        return <div key={condition}>{condition}</div>
-                    })}</div>
-                </div>
+                    flexGrow: 1,
+                    flexShrink: 0
+                }} key={condition.title} initial={{opacity:0,y:50}} whileInView={{opacity:1,y:0}} transition={{bounce:0}}  viewport={{once:true}}>
+                    <ConditionsTreatedIcon condition={condition} />
+                </motion.div>
             })}
         </div>
     </Page>

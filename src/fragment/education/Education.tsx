@@ -1,6 +1,7 @@
 import {colors} from "../colors";
 import {useViewportDimension} from "../useViewportDimension";
 import {Page} from "../components/Page";
+import {P} from "../components/P.tsx";
 
 export function Education() {
     const dimension = useViewportDimension();
@@ -10,13 +11,13 @@ export function Education() {
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
             <div style={{display: 'flex', flexDirection: 'column', width: columnWidth}}>
                 {educations.map(education => {
-                    return <div style={{display: 'flex', flexDirection: 'column', margin: '1rem 0rem'}}
+                    return <P style={{display: 'flex', flexDirection: 'column', margin: '1rem 0rem'}}
                                 key={education.title}>
                         <h3 style={{margin: 0, padding: 0, fontWeight: 600}}>{education.title}</h3>
                         <div style={{fontWeight: 400}}>{education.year}</div>
                         <div style={{fontWeight: 500}}>{education.institution}</div>
                         <div>{education.city}</div>
-                    </div>
+                    </P>
                 })}
             </div>
             <div style={{
@@ -28,13 +29,13 @@ export function Education() {
             }}>
                 <div style={{display: 'flex', flexDirection: 'column', marginLeft: hideBorder ? '0px' : '1rem'}}>
                     {certificationLicense.map(education => {
-                        return <div style={{display: 'flex', flexDirection: 'column', margin: '1rem 0rem'}}
+                        return <P style={{display: 'flex', flexDirection: 'column', margin: '1rem 0rem'}}
                                     key={education.title}>
                             <h3 style={{margin: 0, padding: 0}}>{education.title}</h3>
                             {education.contents.map(item => {
                                 return <div key={item}>{item}</div>
                             })}
-                        </div>
+                        </P>
                     })}
                 </div>
             </div>

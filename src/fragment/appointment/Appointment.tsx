@@ -127,6 +127,7 @@ ${props.message}
             then I will offer your child possible appointment dates / times.
         </P>
         <P>Use the contact form below to reach out to me.</P>
+        <P>
         <form style={{display: 'flex', flexDirection: 'column', padding: '1rem 0rem'}} onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -190,6 +191,7 @@ ${props.message}
             {/*</div>*/}
 
         </form>
+        </P>
     </Page>
 }
 

@@ -9,6 +9,7 @@ import {FollowUpConsultations} from "./fragment/followup-consultations/FollowUpC
 import {FeePayment} from "./fragment/fee-payment/FeePayment.tsx";
 import {WhatIsHomeopathy} from "./fragment/what-is-homeopathy/WhatIsHomeopathy.tsx";
 import {Footer} from "./fragment/footer/Footer.tsx";
+import {ProgressBar} from "./fragment/progress/ProgressBar.tsx";
 
 /**
  *
@@ -17,7 +18,9 @@ import {Footer} from "./fragment/footer/Footer.tsx";
 
 function App() {
 
+
     return <div style={{display: 'flex', flexDirection: 'column', maxWidth: 900, margin: 'auto'}}>
+        <ProgressBar />
         <Menu/>
         <Banner/>
         <Journey/>
@@ -27,8 +30,8 @@ function App() {
         <FollowUpConsultations/>
         <Appointment/>
         <FeePayment/>
-        <WhatIsHomeopathy />
-        <Footer />
+        <WhatIsHomeopathy/>
+        <Footer/>
     </div>
 }
 

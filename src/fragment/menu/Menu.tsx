@@ -1,9 +1,9 @@
 import {CSSProperties, HTMLProps, PropsWithChildren, useState} from "react";
 import {useViewportDimension} from "../useViewportDimension.ts";
 import {colors} from "../colors.ts";
-
+import {motion} from "framer-motion";
 const Li = (props: PropsWithChildren) => <li style={{
-    margin: 0, listStyle: 'none', flexGrow: 1, padding: '1rem',
+    margin: 0, listStyle: 'none', flexGrow: 1, padding: '0.5rem',
     justifyContent: 'center', textAlign: 'center'
 }}>{props.children}</li>
 
@@ -14,8 +14,8 @@ const A = (props: HTMLProps<HTMLAnchorElement>) => <a {...props} style={{
 
 export function Menu() {
     const dimension = useViewportDimension();
-    const ulStyle: CSSProperties = {display: 'flex', margin: 0, padding: 0, flexWrap: 'wrap'};
-    const navStyle: CSSProperties = {background: '#80BC6A', boxShadow: '0 30px 30px -15px rgba(0,0,0,0.1) inset'};
+    const ulStyle: CSSProperties = {display: 'flex', margin: 0, padding: 0, flexWrap: 'wrap',fontSize:'1rem'};
+    const navStyle: CSSProperties = {background: '#80BC6A', boxShadow: '0 30px 30px -15px rgba(0,0,0,0.1) inset',position:'fixed',top:0,width:900};
     const isMobile = dimension.width < 735;
     const [showMenu, setShowMenu] = useState(!isMobile);
     if (isMobile) {
@@ -42,7 +42,7 @@ export function Menu() {
 
         </div>
     }
-    return <nav style={navStyle}>
+    return <motion.nav style={navStyle} initial={{y:-100}} animate={{y:0}} transition={{bounce:0}}>
         <ul style={ulStyle} onClick={() => {
             if (isMobile) {
                 setShowMenu(false)
@@ -56,5 +56,5 @@ export function Menu() {
             <Li><A href={'#what-is-homeopathy'}>What is Homeopathy</A></Li>
             <Li><A href={'#appointment'}>Contact</A></Li>
         </ul>
-    </nav>
+    </motion.nav>
 }

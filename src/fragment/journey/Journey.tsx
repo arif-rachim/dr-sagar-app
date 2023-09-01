@@ -22,7 +22,7 @@ export function Journey() {
     }
     return <Page title={'My Journey'} path={'journey'}>
             <div style={imageStyle}>
-                <img src={drSagar} width={270} height={400}  alt={'Dr Sagar profile picture'}/>
+                <img src={drSagar} width={270} height={400}  alt={'Dr Sagar profile picture'} />
             </div>
             <P>I am Dr.
                 Padmini Sagar and I have been a practicing pediatrician for nearly 40 years. After practicing
@@ -43,8 +43,8 @@ export function Journey() {
                 amazing
                 results without the side effects. Now I would like to treat my Pediatric Patients exclusively with
                 Homeopathy and Holistic approaches.</P>
-            <p>This is a Holistic Pediatric consultation only, not a primary care practice. Your child needs to have a
-                primary care physician. The consultation is by Video visit only at this time.</p>
+            <P>This is a Holistic Pediatric consultation only, not a primary care practice. Your child needs to have a
+                primary care physician. The consultation is by Video visit only at this time.</P>
 
     </Page>
 }
