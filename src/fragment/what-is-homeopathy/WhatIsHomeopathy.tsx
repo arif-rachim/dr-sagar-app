@@ -7,7 +7,7 @@ export function WhatIsHomeopathy() {
     const imageSize = width > 800 ? 800 : `calc(${width}px - 0.5rem)`;
     return <Page title={'What is Homeopathy ?'} path={'what-is-homeopathy'}>
         <P>
-            Homeopathy is a gentle and natural healing system of Medicine based on "Law of Similar" or "like Cures
+            Homeopathy is a gentle and natural healing system of Medicine based on "Law of Similars" or "like Cures
             like". It means a substance which can cause symptoms when given in a large dose to a healthy person, can
             cure the same symptoms in a sick person when given in a highly diluted dose. This system of Medicine was
             developed and refined by German Physician - Chemist Dr. Samuel Hahnemann (1755 - 1843). One common example
@@ -16,7 +16,7 @@ export function WhatIsHomeopathy() {
         </P>
         <P>
             Homeopathy treats the whole person and produce gentle cure without the side effects. It is highly
-            individualized to the patient. The Remedies are made from Plants, Minerals or Animals in very dilute
+            individualized to the patient. The Remedies are made from Plants, Minerals or Animals in a very dilute
             concentrations (like nano concentration) which makes hem effective but at the same time without the toxic
             side effects. Appropriately selected Homeopathic Remedy for the individual patient, works slowly but brings
             cure in chronic conditions. So please don't expect immediate results in hours/days. Although it works fast

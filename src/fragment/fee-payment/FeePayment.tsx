@@ -2,7 +2,7 @@ import {Page} from "../components/Page.tsx";
 import {P} from "../components/P.tsx";
 
 export function FeePayment() {
-    return <Page title={'Fee & Payment'} path={'fee-payment'}>
+    return <Page title={'Fees & Payment'} path={'fee-payment'}>
         <h3>First appointment : 1 - 2 hours : $150</h3>
         <p>It includes 1rst Follow up appointment at 4-6 weeks</p>
         <h3>Each Future Follow ups : $100</h3>

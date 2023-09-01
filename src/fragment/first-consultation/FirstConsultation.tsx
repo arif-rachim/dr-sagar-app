@@ -30,8 +30,8 @@ export function FirstConsultation() {
             Store the Remedy away from strong substances and electromagnetic fields like phone, microwave and computer
             etc.
         </P>
-        <P>I cannot guarantee cure in every patient but I will work with you to bring positive effects in your child's</P>
-        <P>This is a consultancy practice only. Your child needs to have a Primary care Doctor for routine care.</P>
+        <P>I cannot guarantee cure in every patient but I will work with you to bring positive effects in your child's health.</P>
+        <P>This is a consultation practice only. Your child needs to have a Primary care Doctor for routine care.</P>
         <P>Thank you in advance for giving me the opportunity to care for your child!.</P>
     </Page>
 }

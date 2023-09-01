@@ -51,13 +51,13 @@ const educations: { title: string, year: string, institution: string, city: stri
     },
     {
         title: 'Pediatric Residency',
-        year: '1984',
+        year: '1981 - 1984',
         institution: 'Rush Presbyterian St. Like Medical Center',
         city: 'Chicago, IL'
     },
     {
         title: 'Homeopathic Education',
-        year: '2022',
+        year: '2000 - 2022',
         institution: 'New England School of Homeopathy',
         city: 'Connecticut, MA.'
     }

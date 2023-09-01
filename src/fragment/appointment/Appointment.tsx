@@ -176,9 +176,9 @@ ${props.message}
                        placeholder={'Phone'}/>
             </div>
             <Input name={'childName'} required={true} type={'text'} inputMode={'text'} style={{marginBottom: '1rem'}}
-                   title={'Child Name'} placeholder={'Enter the child\'s name'}/>
+                   title={"Child's Name"} placeholder={'Enter the child\'s name'}/>
             <Input name={'childDob'} required={true} type={'date'} inputMode={'text'} style={{marginBottom: '1rem'}}
-                   title={'Child Date of Birth'} placeholder={'Select a date'}/>
+                   title={"Child's Date of Birth"} placeholder={'Select a date'}/>
             <TextArea name={'message'} required={true} inputMode={'text'}
                       style={{marginBottom: '1rem', height: '10rem'}} title={'Message'}
                       placeholder={'What is ailing your child ?'}/>
