@@ -10,7 +10,7 @@ export function ProgressBar() {
         right: 0,
         height: 3,
         background: '#257C79',
-        zIndex: 1,
+        zIndex: 2,
         transformOrigin: '0%', scaleX: scrollYProgress
     }}></motion.div>
 }

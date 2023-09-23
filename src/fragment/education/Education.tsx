@@ -53,7 +53,7 @@ const educations: { title: string, year: string, institution: string, city: stri
     {
         title: 'Pediatric Residency',
         year: '1981 - 1984',
-        institution: 'Rush Presbyterian St. Like Medical Center',
+        institution: 'Rush Presbyterian St. Luke Medical Center',
         city: 'Chicago, IL'
     },
     {

@@ -4,7 +4,7 @@ import {P} from "../components/P.tsx";
 
 export function FollowUpConsultations() {
     return <Page title={"Follow Up Consultations"} path={'followup-consultations'}>
-        <h1 style={{fontSize: '1.6rem', fontWeight: 400,color:'#444'}}>First Follow Up</h1>
+        <h1 style={{fontSize: '1.6rem', fontWeight: 400}}>First Follow Up</h1>
         <P>
             This takes place in 4-6 weeks. During the visit, I will assess whether your child has improved with the
             Remedy I prescribed. Please remember that the improvement is gradual over 4-6 weeks and continues even after
@@ -15,7 +15,7 @@ export function FollowUpConsultations() {
             6-8 weeks period, your child may need a different Remedy. I will analyze the case again, and prescribe and
             follow him/her again in 4-6 weeks.
         </P>
-        <h1 style={{fontSize: '1.6rem', fontWeight: 400,color:'#444'}}>Second and Further Follow Ups</h1>
+        <h1 style={{fontSize: '1.6rem', fontWeight: 400}}>Second and Further Follow Ups</h1>
         <P>
             If your child continues to do well, no further dose is needed and I will follow your child every 2-6 months
             intervals. Sometimes Vaccines, Medications, Anesthesia, etc. may counteract the Homeopathic Remedy and

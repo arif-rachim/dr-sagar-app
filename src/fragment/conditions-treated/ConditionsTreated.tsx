@@ -8,7 +8,6 @@ import eczema from "./eczema.png";
 import growth from "./growth.png";
 import injury from "./injury.png";
 import {PropsWithChildren, useRef} from "react";
-import {motion} from "framer-motion";
 
 const conditions: { title: string, image: string, details: string[] }[] = [
     {
@@ -62,7 +61,7 @@ export function ConditionsTreated() {
     return <Page title={'Conditions Treated'} path={'conditions-treated'}>
         <div style={{display: 'flex', flexWrap: 'wrap',justifyContent:'center'}}>
             {conditions.map((condition) => {
-                return <motion.div style={{
+                return <div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     margin: '1rem',
@@ -71,9 +70,9 @@ export function ConditionsTreated() {
                     textAlign: 'center',
                     flexGrow: 1,
                     flexShrink: 0
-                }} key={condition.title} initial={{opacity:0,y:50}} whileInView={{opacity:1,y:0}} transition={{bounce:0}}  viewport={{once:true}}>
+                }} key={condition.title} initial={{opacity:0,y:50}} transition={{bounce:0}} >
                     <ConditionsTreatedIcon condition={condition} />
-                </motion.div>
+                </div>
             })}
         </div>
     </Page>

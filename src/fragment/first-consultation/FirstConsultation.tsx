@@ -3,7 +3,7 @@ import {P} from "../components/P.tsx";
 
 export function FirstConsultation() {
     return <Page title={"First Consultation"} path={'first-consultation'}>
-        <P style={{fontSize: '1.6rem', fontWeight: 400, color: '#444'}}>What to Expect</P>
+        <P style={{fontSize: '1.6rem', fontWeight: 400}}>What to Expect</P>
         <P>During the first consultation, I will be taking a complete history of your child starting from conception to
             the present. I will also need the child's vaccine history, lab results if there are any, food preferences,
             fears, sleep habits and also Family history. That way I can assess your child thoroughly and be able to
