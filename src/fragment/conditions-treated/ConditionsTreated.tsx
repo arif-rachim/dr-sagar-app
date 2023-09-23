@@ -70,7 +70,7 @@ export function ConditionsTreated() {
                     textAlign: 'center',
                     flexGrow: 1,
                     flexShrink: 0
-                }} key={condition.title} initial={{opacity:0,y:50}} transition={{bounce:0}} >
+                }} key={condition.title}  >
                     <ConditionsTreatedIcon condition={condition} />
                 </div>
             })}
