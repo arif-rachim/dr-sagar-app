@@ -12,7 +12,7 @@ export function FollowUpConsultations() {
             depending on the child and other factors. If your child definitely shows improvement, he/she will not need a
             further dose of the Remedy until the symptoms return. Please have your diary of the child's progress
             available at the time of follow up consultation. In case, your child does not show any improvement in the
-            6-8 weeks period, your child may need a different Remedy. I will analyze the case again, and prescribe and
+            6-8 weeks period, your child may need a different Remedy. I will analyze the case again, prescribe and
             follow him/her again in 4-6 weeks.
         </P>
         <h1 style={{fontSize: '1.6rem', fontWeight: 400}}>Second and Further Follow Ups</h1>

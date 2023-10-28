@@ -25,7 +25,7 @@ export function WhatIsHomeopathy() {
         <P>
             Our bodies have a tremendous power to heal and stay healthy. Sometimes our bodies go out of balance due to
             poor nutrition, bad lifestyle and sometimes by genetic predisposition. Due to this, the body is unable to
-            heal itself and stay healthy. By working together, and focusing on your child's nutrition, healthy lifestyle
+            heal itself and stay healthy. By focusing on child's nutrition, healthy lifestyle
             and using gentle remedies like Homeopathy, we can restore this balance and restore your child's health.
         </P>
         <P>
