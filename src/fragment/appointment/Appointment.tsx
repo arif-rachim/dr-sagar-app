@@ -15,7 +15,7 @@ const Input = (properties: PropsWithChildren<InputHTMLAttributes<HTMLInputElemen
     return <label style={{display: 'flex', flexDirection: 'column', ...containerStyle}}>
         <div style={{fontSize: '0.9rem', paddingLeft: '0.5rem'}}>{props.title}</div>
         <input {...props} style={{
-            border: 'none',
+            border: '1px solid rgba(0,0,0,0.1)',
             background: 'rgba(255,255,255,0.5)',
             padding: '0.7rem 0.5rem',
             fontSize: '1rem',
@@ -43,7 +43,7 @@ const TextArea = (properties: PropsWithChildren<TextareaHTMLAttributes<HTMLTextA
     return <label style={{display: 'flex', flexDirection: 'column', ...containerStyle}}>
         <div style={{fontSize: '0.9rem', paddingLeft: '0.5rem'}}>{props.title}</div>
         <textarea {...props} style={{
-            border: 'none',
+            border: '1px solid rgba(0,0,0,0.1)',
             background: 'rgba(255,255,255,0.5)',
             padding: '0.7rem 0.5rem',
             fontSize: '1rem',
