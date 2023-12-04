@@ -22,7 +22,7 @@ const conditions: { title: string, image: string, details: string[] }[] = [
         details: ['Ear infections', 'Tonsillitis', 'Sinusitis', 'Bronchitis & Pneumonia']
     },
     {title: 'Eczema & other Skin problems', image: eczema, details: []},
-    {title: 'Bowel prblems', image: bowel, details: []},
+    {title: 'Bowel problems', image: bowel, details: []},
     {title: 'Arthritis', image: arthritis, details: []},
     {title: 'Injuries and its complications', image: injury, details: []},
     {title: 'Growth Problems', image: growth, details: []}

@@ -15,9 +15,9 @@ export function WhatIsHomeopathy() {
             made from red onion can help the same symptoms resulting from cold or allergies in a sick individual.
         </P>
         <P>
-            Homeopathy treats the whole person and produce gentle cure without the side effects. It is highly
+            Homeopathy treats the whole person and produces a gentle cure without the side effects. It is highly
             individualized to the patient. The Remedies are made from Plants, Minerals or Animals in a very dilute
-            concentrations (like nano concentration) which makes hem effective but at the same time without the toxic
+            concentrations (like nano concentration) which makes them effective but at the same time without the toxic
             side effects. Appropriately selected Homeopathic Remedy for the individual patient, works slowly but brings
             cure in chronic conditions. So please don't expect immediate results in hours/days. Although it works fast
             in acute conditions, it takes a few weeks to bring a cure in chronic conditions.

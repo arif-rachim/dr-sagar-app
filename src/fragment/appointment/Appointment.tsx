@@ -53,7 +53,7 @@ const TextArea = (properties: PropsWithChildren<TextareaHTMLAttributes<HTMLTextA
     </label>
 }
 
-type Customer = { name: string, email: string, phone: string, childName: string, childDoB: string, message: string };
+type Customer = { name: string, email: string, phone: string, childName: string, childDoB: string, message: string,address:string };
 
 export function Appointment() {
     const id = useId();
@@ -62,13 +62,15 @@ export function Appointment() {
     function sendEmail(props: Customer) {
         const a = document.createElement('a');
         const title = `From ${props.name} parents of ${props.childName}`;
-        const message = `Parent : ${props.name}
-Child  : ${props.childName} 
-DoB    : (${props.childDoB} / ${calculateAge(new Date(props.childDoB))}) 
-Email  : ${props.email} 
-Phone  : ${props.phone}
+        const message = `
+Parent\t: ${props.name}
+Child\t: ${props.childName} 
+DoB\t\t: (${props.childDoB} / ${calculateAge(new Date(props.childDoB))}) 
+Email\t: ${props.email} 
+Phone\t: ${props.phone}
+Address\t: ${props.address}
 
-${props.message}
+Message\t: ${props.message}
 `;
         const href = `mailto:pedsagar@gmail.com?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(message)}`;
         const linkId = `mail-${id}`;
@@ -147,12 +149,13 @@ ${props.message}
             };
 
             const customer: Customer = {
-                name: getValue('name'),
+                name: toPascalCase(getValue('name')),
                 childDoB: getValue('childDob'),
-                childName: getValue('childName'),
+                childName: toPascalCase(getValue('childName')),
                 email: getValue('email'),
                 message: getValue('message'),
-                phone: getValue('phone')
+                phone: getValue('phone'),
+                address:toPascalCase(getValue('address'))
             }
 
             if (trigger === 'email') {
@@ -166,16 +169,22 @@ ${props.message}
             }
             return false;
         }} action={'#'} id={`${id}-form`}>
-            <Input name={'name'} required={true} style={{marginBottom: '1rem'}} title={'Name'}
-                   placeholder={'Enter your name'}/>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <div style={{display: 'flex', flexDirection: 'row',gap:'1rem'}}>
+                <Input name={'name'} required={true} title={'Name'}
+                       containerStyle={{width:'50%', marginBottom: '1rem'}} placeholder={'Enter your name'}/>
                 <Input name={'email'} required={true} type={'email'} inputMode={"email"}
-                       containerStyle={{flexGrow: 1, marginBottom: '1rem', marginRight: '1rem'}} title={'Email'}
+                       containerStyle={{width:'50%', marginBottom: '1rem'}} title={'Email'}
                        placeholder={'Email'}/>
-                <Input name={'phone'} required={true} type={'tel'} inputMode={'tel'}
-                       containerStyle={{flexGrow: 1, marginBottom: '1rem'}} title={'Phone'}
-                       placeholder={'Phone'}/>
             </div>
+
+            <div style={{display: 'flex', flexDirection: 'row',gap:'1rem'}}>
+                <Input name={'phone'} required={true} type={'tel'} inputMode={'tel'}
+                       containerStyle={{width:'50%', marginBottom: '1rem'}} title={'Phone'}
+                       placeholder={'Phone'}/>
+                <Input name={'address'} required={true} type={'text'} inputMode={'text'}
+                       containerStyle={{width:'50%', marginBottom: '1rem'}} title={"Address"} placeholder={'Enter your address'}/>
+            </div>
+
             <Input name={'childName'} required={true} type={'text'} inputMode={'text'} style={{marginBottom: '1rem'}}
                    title={"Child's Name"} placeholder={'Enter the child\'s name'}/>
             <Input name={'childDob'} required={true} type={'date'} inputMode={'text'} style={{marginBottom: '1rem'}}
@@ -208,14 +217,22 @@ function calculateAge(dob: Date) {
     } else {
         age = yearDiff;
     }
-
+    if(age < 0 ){
+        return ''
+    }
     if (age === 0) {
         const monthCount = (today.getFullYear() - dob.getFullYear()) * 12 + today.getMonth() - dob.getMonth();
-        age = monthCount.toString() + ' month';
-    } else if (age === 1) {
-        age = age.toString() + ' year';
+        age = monthCount.toString() + ' month'+(monthCount>1?`'s`:'');
     } else {
-        age = age.toString() + ' years';
+        age = age.toString() + ' year'+(age > 1 ?`'s`:'');
     }
     return age;
+}
+
+function toPascalCase(sentence:string) {
+    // Split the sentence into words
+    const words = sentence.split(/\s+/);
+    // Capitalize the first letter of each word and concatenate them
+    const pascalCaseResult = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('');
+    return pascalCaseResult;
 }
